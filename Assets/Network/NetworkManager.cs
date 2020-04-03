@@ -24,7 +24,7 @@ namespace Assets.Network
 
             void _server_ClientConnected(object sender, System.Net.Sockets.TcpClient e)
             {
-                throw new NotImplementedException();
+                Debug.Log($"New client connected...");
             }
         }
 
