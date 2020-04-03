@@ -14,7 +14,6 @@ public class Triangle : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
 		gameObject.AddComponent<MeshFilter>();
 		meshRenderer = gameObject.AddComponent<MeshRenderer>();
 
@@ -26,13 +25,15 @@ public class Triangle : MonoBehaviour
 		vertices = new[] {
 			new Vector3(0,0,10),
 			new Vector3(0,1,10),
-			new Vector3(1,0,10),
-
+			new Vector3(1,0,10), 
+			new Vector3(5,0,10),
+			new Vector3(5,1,10),
+			new Vector3(6,0,10),
 		};
 
 		mesh.vertices = vertices;
 
-		triangles = new[] { 0, 1, 2 };
+		triangles = new[] { 0, 1, 2, 3, 4, 5};
 
 		mesh.triangles = triangles;
 	}
