@@ -17,7 +17,7 @@ public class MainCameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x += 0.1f;publi
+        x += 0.1f;
         //transform.LookAt(new Vector3(-x, 0, 0));
         transform.position = new Vector3(0, 0, -x);
     }

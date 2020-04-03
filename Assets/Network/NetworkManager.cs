@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Network
 {
+
     public class NetworkManager
     {
     }
