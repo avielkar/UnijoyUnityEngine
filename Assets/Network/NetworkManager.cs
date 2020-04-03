@@ -20,7 +20,9 @@ namespace Assets.Network
         {
             Debug.Log("Server is start listening...");
             _server = new SimpleTcpServer().Start(IPAddress.Parse("127.0.0.1"), SERVER_PORT);
+            
             _server.ClientConnected += _server_ClientConnected;
+            _server.DelimiterDataReceived += _server_DelimiterDataReceived;
 
             void _server_ClientConnected(object sender, System.Net.Sockets.TcpClient e)
             {
@@ -28,9 +30,9 @@ namespace Assets.Network
             }
         }
 
-        // Update is called once per frame
-        void Update()
+        private void _server_DelimiterDataReceived(object sender, Message e)
         {
+
         }
     }
 }
