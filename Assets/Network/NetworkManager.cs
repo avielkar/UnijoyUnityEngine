@@ -18,6 +18,7 @@ namespace Assets.Network
 
         void Start()
         {
+            Debug.Log("Server is start listening...");
             _server = new SimpleTcpServer().Start(IPAddress.Parse("127.0.0.1"), SERVER_PORT);
             _server.ClientConnected += _server_ClientConnected;
 
