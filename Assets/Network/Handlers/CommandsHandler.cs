@@ -9,20 +9,18 @@ using Assets.Network.Retrievers;
 
 namespace Assets.Network.Handlers
 {
-    public class DataHandler : IDataHandler
+    public class CommandsHandler : ICommandsHandler
     {
         private readonly char[] _commandSplitChar = new char[]{'?'};
 
-        public DataHandler()
+        public CommandsHandler()
         {
         }
 
-        public void Handle(string cmd)
+        public void Handle(string cmd, out string commandName , out string commandValue)
         {
             var commandValuePair = cmd.Split(_commandSplitChar);
-            var (commandName, commandValue) = (commandValuePair[0], commandValuePair[1]);
-
-
+            (commandName, commandValue) = (commandValuePair[0], commandValuePair[1]);
         }
     }
 }

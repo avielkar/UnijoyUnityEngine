@@ -15,12 +15,12 @@ namespace Assets.SceneManager
     {
         private ISceneBuilder<T> _sceneBuilder;
         private IDataRetriever<M> _dataRetriever;
-        private IDataHandler _dataHandler;
+        private ICommandsHandler _dataHandler;
 
         public SceneManager(
             ISceneBuilder<T> sceneBuilder,
             IDataRetriever<M> dataRetriever,
-            IDataHandler dataHandler)
+            ICommandsHandler dataHandler)
         {
             _sceneBuilder = sceneBuilder;
             _dataRetriever = dataRetriever;

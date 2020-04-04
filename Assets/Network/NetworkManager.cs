@@ -20,13 +20,13 @@ namespace Assets.Network
         private byte COMMANDS_DELIMITER = (byte)'#';
         private SimpleTcpServer _server;
 
-        private IDataHandler _dataHandler;
+        private ICommandsHandler _commandsHandler;
 
         public NetworkManager(
-            IDataHandler dataHandler
+            ICommandsHandler dataHandler
             )
         {
-            _dataHandler = dataHandler;
+            _commandsHandler = dataHandler;
         }
         void Start()
         {
@@ -45,7 +45,7 @@ namespace Assets.Network
 
         private void _server_DelimiterDataReceived(object sender, Message e)
         {
-            _dataHandler.Handle(e.MessageString);
+            _commandsHandler.Handle(e.MessageString , out var commandName, out var commandValue);
         }
     }
 }
