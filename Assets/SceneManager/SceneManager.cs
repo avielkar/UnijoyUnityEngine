@@ -14,29 +14,27 @@ namespace Assets.SceneManager
 {
     public class SceneManager<T,M>:ISceneManager<T> where T : ISceneData where M:ITrialData
     {
+        private int SERVER_PORT = 8910;
+
         private ISceneBuilder<T> _sceneBuilder;
         private IDataRetriever<M> _dataRetriever;
-        private ICommandsHandler _commandHandler;
-        private NetworkManager _networkManager;
+        private ICommandsRetriever _commandRetriever;
 
         public SceneManager(
             ISceneBuilder<T> sceneBuilder,
             IDataRetriever<M> dataRetriever,
-            ICommandsHandler dataHandler)
+            ICommandsRetriever dataHandler)
         {
-            _networkManager = new NetworkManager(dataHandler.Handle);
             _sceneBuilder = sceneBuilder;
             _dataRetriever = dataRetriever;
-            _commandHandler = dataHandler;
+            _commandRetriever = dataHandler;
         }
 
         public void Start()
         {
-            _networkManager.Start();
-
             Task.Run(() =>
             {
-                if(_commandHandler.TryGrabCommand(out var commandName, out var commandValue))
+                if(_commandRetriever.TryGrabCommand(out var commandName, out var commandValue))
                 {
 
                 }

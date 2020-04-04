@@ -9,10 +9,12 @@ using Assets.Network.Retrievers;
 
 namespace Assets.Network.Handlers
 {
-    public interface ICommandsHandler
+    public interface ICommandsRetriever
     {
-        void Handle(string cmd);
-
         bool TryGrabCommand(out string commandName, out string commandValue);
+
+        bool Start();
+
+        void Stop();
     }
 }
