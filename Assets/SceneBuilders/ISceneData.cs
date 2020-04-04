@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assets.SceneBuilders
 {
-    public interface IBuilder
+    public interface ISceneData
     {
-        void Build();
+
     }
 }
