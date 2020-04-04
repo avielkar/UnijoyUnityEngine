@@ -11,21 +11,21 @@ namespace Assets.Data
     public interface ITrajectoryData
     {
         [JsonProperty]
-        public List<float> X { get; set; }
+        List<float> X { get; set; }
 
         [JsonProperty]
-        public List<float> Y { get; set; }
+        List<float> Y { get; set; }
 
         [JsonProperty]
-        public List<float> Z { get; set; }
+        List<float> Z { get; set; }
 
         [JsonProperty]
-        public List<float> RX { get; set; }
+        List<float> RX { get; set; }
 
         [JsonProperty]
-        public List<float> RY { get; set; }
+        List<float> RY { get; set; }
 
         [JsonProperty]
-        public List<float> RZ { get; set; }
+        List<float> RZ { get; set; }
     }
 }
