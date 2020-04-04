@@ -1,19 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using Assets.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Assets.Data;
-
-namespace Assets.Network.Retrievers
+namespace Assets.SceneBuilders
 {
-    [JsonObject]
-    public class UnijoyData : ITrialData
+    public class UnijoySceneData : ISceneData
     {
-        public int Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
+        public List<float> ObjectsVertices { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
+        public int Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public List<float> X { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
         public List<float> Y { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

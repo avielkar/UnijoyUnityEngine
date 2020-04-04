@@ -9,8 +9,10 @@ using Assets.Network.Retrievers;
 
 namespace Assets.Network.Handlers
 {
-    public interface IDataHandler<T> where T : ITrialData
+    public interface ICommandsHandler
     {
-        void Handle(string data);
+        void Handle(string cmd);
+
+        bool TryGrabCommand(out string commandName, out string commandValue);
     }
 }

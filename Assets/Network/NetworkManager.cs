@@ -14,24 +14,21 @@ using Assets.Network.Retrievers;
 namespace Assets.Network
 {
 
-    public class NetworkManager : MonoBehaviour
+    public class NetworkManager
     {
         private int SERVER_PORT = 8910;
         private byte COMMANDS_DELIMITER = (byte)'#';
         private SimpleTcpServer _server;
 
-        private IDataHandler<ITrialData> _dataHandler;
-        private IDataRetriever<ITrialData> _dataRetriever;
+        private ICommandsHandler _commandsHandler;
+        private Action<string> _dataReceivedAction;
 
-        public NetworkManager(
-            IDataRetriever<ITrialData> dataRetriever,
-            IDataHandler<ITrialData> dataHandler
-            )
+        public NetworkManager(Action<string> handleCommandsData)
         {
-            _dataHandler = dataHandler;
-            _dataRetriever = dataRetriever;
+            _dataReceivedAction = handleCommandsData;
         }
-        void Start()
+
+        public void Start()
         {
             Debug.Log("Server is start listening...");
             _server = new SimpleTcpServer().Start(IPAddress.Parse("127.0.0.1"), SERVER_PORT);
@@ -48,7 +45,8 @@ namespace Assets.Network
 
         private void _server_DelimiterDataReceived(object sender, Message e)
         {
-            _dataHandler.Handle(e.MessageString);
+            _dataReceivedAction(e.MessageString);
+            // _commandsHandler.Handle(e.MessageString , out var commandName, out var commandValue);
         }
     }
 }
