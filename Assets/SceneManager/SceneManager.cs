@@ -20,25 +20,19 @@ namespace Assets.SceneManager
         private NetworkManager _networkManager;
 
         public SceneManager(
-            NetworkManager networkManager,
             ISceneBuilder<T> sceneBuilder,
             IDataRetriever<M> dataRetriever,
             ICommandsHandler dataHandler)
         {
-            _networkManager = networkManager;
+            _networkManager = new NetworkManager(HandleCommandsData);
             _sceneBuilder = sceneBuilder;
             _dataRetriever = dataRetriever;
             _dataHandler = dataHandler;
-        }
 
-        public void Pause()
-        {
-            throw new NotImplementedException();
-        }
+            void HandleCommandsData(string command)
+            {
 
-        public void Resume()
-        {
-            throw new NotImplementedException();
+            }
         }
 
         public void Start()
@@ -47,6 +41,16 @@ namespace Assets.SceneManager
         }
 
         public void Stop()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Pause()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Resume()
         {
             throw new NotImplementedException();
         }

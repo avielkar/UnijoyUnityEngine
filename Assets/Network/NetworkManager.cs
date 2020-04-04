@@ -21,13 +21,13 @@ namespace Assets.Network
         private SimpleTcpServer _server;
 
         private ICommandsHandler _commandsHandler;
+        private Action<string> _dataReceivedAction;
 
-        public NetworkManager(
-            ICommandsHandler dataHandler
-            )
+        public NetworkManager(Action<string> handleCommandsData)
         {
-            _commandsHandler = dataHandler;
+            _dataReceivedAction = handleCommandsData;
         }
+
         public void Start()
         {
             Debug.Log("Server is start listening...");
@@ -45,7 +45,8 @@ namespace Assets.Network
 
         private void _server_DelimiterDataReceived(object sender, Message e)
         {
-            _commandsHandler.Handle(e.MessageString , out var commandName, out var commandValue);
+            _dataReceivedAction(e.MessageString);
+            // _commandsHandler.Handle(e.MessageString , out var commandName, out var commandValue);
         }
     }
 }
