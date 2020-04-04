@@ -20,12 +20,12 @@ namespace Assets.Network
         private byte COMMANDS_DELIMITER = (byte)'#';
         private SimpleTcpServer _server;
 
-        private IDataHandler<ITrialData> _dataHandler;
-        private IDataRetriever<ITrialData> _dataRetriever;
+        private IDataHandler<IScenceData> _dataHandler;
+        private IDataRetriever<IScenceData> _dataRetriever;
 
         public NetworkManager(
-            IDataRetriever<ITrialData> dataRetriever,
-            IDataHandler<ITrialData> dataHandler
+            IDataRetriever<IScenceData> dataRetriever,
+            IDataHandler<IScenceData> dataHandler
             )
         {
             _dataHandler = dataHandler;

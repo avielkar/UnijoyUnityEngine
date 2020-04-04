@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Data
 {
-    public interface ITrialData : ITrajectoryData, IObjectsMetaData
+    public interface IScenceData : ITrajectoryData, IObjectsMetaData
     {
         int Source { get; set; }
     }
