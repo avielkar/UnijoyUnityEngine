@@ -25,8 +25,11 @@ namespace Assets.Network.Retrievers
         public List<float> RY { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
         public List<float> RZ { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
         public int NumOfObjects { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
         public ColorData ColorData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
         public ObjectType ObjectType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
