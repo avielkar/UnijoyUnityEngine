@@ -10,7 +10,7 @@ public class PreBuild : IPreprocessBuildWithReport
 {
     public int callbackOrder =>  0;
 
-    private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+    private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs, bool overrideFiles)
     {
         // Get the subdirectories for the specified directory.
         DirectoryInfo dir = new DirectoryInfo(sourceDirName);
@@ -34,7 +34,7 @@ public class PreBuild : IPreprocessBuildWithReport
         foreach (FileInfo file in files)
         {
             string temppath = Path.Combine(destDirName, file.Name);
-            file.CopyTo(temppath, false);
+            file.CopyTo(temppath, overrideFiles);
         }
 
         // If copying subdirectories, copy them and their contents to new location.
@@ -43,16 +43,19 @@ public class PreBuild : IPreprocessBuildWithReport
             foreach (DirectoryInfo subdir in dirs)
             {
                 string temppath = Path.Combine(destDirName, subdir.Name);
-                DirectoryCopy(subdir.FullName, temppath, copySubDirs);
+                DirectoryCopy(subdir.FullName, temppath, copySubDirs, overrideFiles);
             }
         }
     }
 
     public void OnPreprocessBuild(BuildReport report)
     {
-        Debug.Log($"Copying VS packages to Unity Assemblies. Current Directory: {Directory.GetCurrentDirectory()}");
+        var sourceDir = $@"{Directory.GetCurrentDirectory()}\Packages";
+        var targetDir = $@"{Directory.GetCurrentDirectory()}\Assets\Assemblies";
+        
+        Debug.Log($"Copying VS packages from {sourceDir} to Unity Assemblies {targetDir}");
 
-        //DirectoryCopy("", "", true);s
+        DirectoryCopy(sourceDir, targetDir , true, true);
     }
 }
 #endif
