@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Network.Handlers
 {
-    public class CommandsHandler : IDataHandler
+    class UnijoyDataHandler
     {
-        public void Handle(string data)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

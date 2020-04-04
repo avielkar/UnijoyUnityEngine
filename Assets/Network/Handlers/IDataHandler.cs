@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Assets.Network.Retrievers;
+
 namespace Assets.Network.Handlers
 {
-    public interface IDataHandler
+    public interface IDataHandler<T> where T : IData
     {
         void Handle(string data);
     }
