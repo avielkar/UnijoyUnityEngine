@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Assets.Network.Retrievers
 {
-    public class DataRetriever<T> : IDataRetriever<T> where T : IData
+    public class DataRetriever<T> : IDataRetriever<T> where T : ITrialData
     {
         public bool RetrieveData(string filePath, out T data)
         {

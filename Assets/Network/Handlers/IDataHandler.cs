@@ -9,7 +9,7 @@ using Assets.Network.Retrievers;
 
 namespace Assets.Network.Handlers
 {
-    public interface IDataHandler<T> where T : IData
+    public interface IDataHandler<T> where T : ITrialData
     {
         void Handle(string data);
     }
