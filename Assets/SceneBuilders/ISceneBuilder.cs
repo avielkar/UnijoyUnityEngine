@@ -10,6 +10,6 @@ namespace Assets.SceneBuilders
 {
     public interface ISceneBuilder:IBuilder
     {
-        public IScenceData SceneData { get; set; }
+        public ITrialData SceneData { get; set; }
     }
 }

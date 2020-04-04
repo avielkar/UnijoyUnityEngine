@@ -10,7 +10,7 @@ using Assets.Data;
 namespace Assets.Network.Retrievers
 {
     [JsonObject]
-    public class UnijoySceneData : IScenceData
+    public class UnijoyTrialData : ITrialData
     {
         public int Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         

@@ -9,7 +9,7 @@ using Assets.Network.Retrievers;
 
 namespace Assets.Network.Handlers
 {
-    public class DataHandler<T> : IDataHandler<T> where T:IScenceData
+    public class DataHandler<T> : IDataHandler<T> where T:ITrialData
     {
         private IDataRetriever<T> _dataRetriever;
         private readonly char[] _commandSplitChar = new char[]{'?'};
