@@ -10,6 +10,12 @@ namespace Assets.SceneManager
 {
     public interface ISceneManager<T> where T : ISceneData
     {
+        void Start();
 
+        void Stop();
+
+        void Pause();
+
+        void Resume();
     }
 }

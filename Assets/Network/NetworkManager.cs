@@ -28,7 +28,7 @@ namespace Assets.Network
         {
             _commandsHandler = dataHandler;
         }
-        void Start()
+        public void Start()
         {
             Debug.Log("Server is start listening...");
             _server = new SimpleTcpServer().Start(IPAddress.Parse("127.0.0.1"), SERVER_PORT);
