@@ -30,14 +30,17 @@ namespace Assets.SceneManager
 
         public void Start()
         {
-            Task.Run(() =>
+            if (_commandRetriever.Start())
             {
-                if(_commandRetriever.TryGrabCommand(out var commandName, out var commandValue))
+                Task.Run(() =>
                 {
+                    if (_commandRetriever.TryGrabCommand(out var commandName, out var commandValue))
+                    {
 
+                    }
                 }
+                );
             }
-            );
         }
 
         public void Stop()
