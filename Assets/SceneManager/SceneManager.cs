@@ -24,15 +24,10 @@ namespace Assets.SceneManager
             IDataRetriever<M> dataRetriever,
             ICommandsHandler dataHandler)
         {
-            _networkManager = new NetworkManager(HandleCommandsData);
+            _networkManager = new NetworkManager(dataHandler.Handle);
             _sceneBuilder = sceneBuilder;
             _dataRetriever = dataRetriever;
             _dataHandler = dataHandler;
-
-            void HandleCommandsData(string command)
-            {
-
-            }
         }
 
         public void Start()
