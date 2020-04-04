@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assets.Network.Retrievers
 {
-    public interface IDataRetriever
+    public interface IDataRetriever<T> where T : IData
     {
-        void RetrieveData(string filePath);
+        bool RetrieveData(string filePath , out T data);
     }
 }
