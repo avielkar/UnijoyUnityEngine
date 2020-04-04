@@ -14,7 +14,7 @@ using Assets.Network.Retrievers;
 namespace Assets.Network
 {
 
-    public class NetworkManager : MonoBehaviour
+    public class NetworkManager
     {
         private int SERVER_PORT = 8910;
         private byte COMMANDS_DELIMITER = (byte)'#';

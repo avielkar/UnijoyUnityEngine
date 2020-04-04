@@ -11,6 +11,6 @@ namespace Assets.Network.Handlers
 {
     public interface ICommandsHandler
     {
-        public void Handle(string cmd, out string commandName, out string commandValue);
+        void Handle(string cmd, out string commandName, out string commandValue);
     }
 }
