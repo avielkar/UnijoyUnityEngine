@@ -4,7 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
+using Assets.Network.Handlers;
+using Assets.Network.Retrievers;
 using SimpleTCP;
 using UnityEngine;
 
@@ -17,6 +18,17 @@ namespace Assets.Network
         private byte COMMANDS_DELIMITER = (byte)'#';
         private SimpleTcpServer _server;
 
+        private IDataHandler _dataHandler;
+        private IDataRetriever _dataRetriever;
+
+        public NetworkManager(
+            IDataRetriever dataRetriever,
+            IDataHandler dataHandler
+            )
+        {
+            _dataHandler = dataHandler;
+            _dataRetriever = dataRetriever;
+        }
         void Start()
         {
             Debug.Log("Server is start listening...");
@@ -34,7 +46,7 @@ namespace Assets.Network
 
         private void _server_DelimiterDataReceived(object sender, Message e)
         {
-
+            _dataHandler.Handle(e.MessageString);
         }
     }
 }
