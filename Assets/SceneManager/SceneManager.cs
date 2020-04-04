@@ -16,7 +16,7 @@ namespace Assets.SceneManager
     {
         private ISceneBuilder<T> _sceneBuilder;
         private IDataRetriever<M> _dataRetriever;
-        private ICommandsHandler _dataHandler;
+        private ICommandsHandler _commandHandler;
         private NetworkManager _networkManager;
 
         public SceneManager(
@@ -27,12 +27,21 @@ namespace Assets.SceneManager
             _networkManager = new NetworkManager(dataHandler.Handle);
             _sceneBuilder = sceneBuilder;
             _dataRetriever = dataRetriever;
-            _dataHandler = dataHandler;
+            _commandHandler = dataHandler;
         }
 
         public void Start()
         {
             _networkManager.Start();
+
+            Task.Run(() =>
+            {
+                if(_commandHandler.TryGrabCommand(out var commandName, out var commandValue))
+                {
+
+                }
+            }
+            );
         }
 
         public void Stop()
