@@ -14,8 +14,6 @@ namespace Assets.SceneManager
 {
     public class SceneManager<T,M>:ISceneManager<T> where T : ISceneData where M:ITrialData
     {
-        private int SERVER_PORT = 8910;
-
         private ISceneBuilder<T> _sceneBuilder;
         private IDataRetriever<M> _dataRetriever;
         private ICommandsRetriever _commandRetriever;
