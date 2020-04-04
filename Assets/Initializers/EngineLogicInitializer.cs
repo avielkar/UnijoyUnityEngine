@@ -16,25 +16,18 @@ namespace Assets.Initializers
     {
         private int SERVER_PORT = 8910;
 
-        private SceneManager<UnijoySceneData,UnijoyTrialData> _sceneManager;
-        private SceneBuilder<UnijoySceneData> _sceneBuilder;
-        private DataRetriever<UnijoyTrialData> _dataRetriever;
-        private CommandsRetriever _commandsRetriever;
+        private SceneManager<UnijoySceneData, UnijoyTrialData> _sceneManager;
 
         private void Awake()
         {
-            _commandsRetriever = new CommandsRetriever(SERVER_PORT);
-            _dataRetriever = new DataRetriever<UnijoyTrialData>();
-            _sceneBuilder = new SceneBuilder<UnijoySceneData>();
-
             _sceneManager = new SceneManager<UnijoySceneData, UnijoyTrialData>(
-                _sceneBuilder,
-                _dataRetriever,
-                _commandsRetriever);
+            new SceneBuilder<UnijoySceneData>(),
+            new DataRetriever<UnijoyTrialData>(),
+            new CommandsRetriever(SERVER_PORT));
         }
         private void Start()
         {
-            
+            _sceneManager.Start();
         }
     }
 }
