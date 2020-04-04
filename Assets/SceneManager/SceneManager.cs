@@ -18,6 +18,9 @@ namespace Assets.SceneManager
         private IDataRetriever<M> _dataRetriever;
         private ICommandsRetriever _commandRetriever;
 
+        private ISceneData _currentUnijoySceneData;
+        private M _currentTrialMetaData; 
+
         public SceneManager(
             ISceneBuilder<T> sceneBuilder,
             IDataRetriever<M> dataRetriever,
@@ -36,10 +39,18 @@ namespace Assets.SceneManager
                 {
                     if (_commandRetriever.TryGrabCommand(out var commandName, out var commandValue))
                     {
-
+                        if(commandName.Equals("ReadTrialJsonData"))
+                        {
+                            _dataRetriever.RetrieveData(commandValue, out _currentTrialMetaData);
+                        }
                     }
                 }
                 );
+
+                Task.Run(() =>
+                {
+
+                });
             }
         }
 
