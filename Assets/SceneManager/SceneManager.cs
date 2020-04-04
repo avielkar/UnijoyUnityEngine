@@ -16,23 +16,42 @@ namespace Assets.SceneManager
     {
         private ISceneBuilder<T> _sceneBuilder;
         private IDataRetriever<M> _dataRetriever;
-        private ICommandsHandler _dataHandler;
-        private NetworkManager _networkManager;
+        private ICommandsRetriever _commandRetriever;
+
+        private ISceneData _currentUnijoySceneData;
+        private M _currentTrialMetaData; 
 
         public SceneManager(
             ISceneBuilder<T> sceneBuilder,
             IDataRetriever<M> dataRetriever,
-            ICommandsHandler dataHandler)
+            ICommandsRetriever dataHandler)
         {
-            _networkManager = new NetworkManager(dataHandler.Handle);
             _sceneBuilder = sceneBuilder;
             _dataRetriever = dataRetriever;
-            _dataHandler = dataHandler;
+            _commandRetriever = dataHandler;
         }
 
         public void Start()
         {
-            _networkManager.Start();
+            if (_commandRetriever.Start())
+            {
+                Task.Run(() =>
+                {
+                    if (_commandRetriever.TryGrabCommand(out var commandName, out var commandValue))
+                    {
+                        if(commandName.Equals("ReadTrialJsonData"))
+                        {
+                            _dataRetriever.RetrieveData(commandValue, out _currentTrialMetaData);
+                        }
+                    }
+                }
+                );
+
+                Task.Run(() =>
+                {
+
+                });
+            }
         }
 
         public void Stop()
