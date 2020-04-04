@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Assets.Data;
+
 namespace Assets.SceneBuilders
 {
-    public interface ISceneData
+    public interface ISceneData : ITrialData
     {
-
+        List<float> ObjectsVertices { get; set; }
     }
 }
