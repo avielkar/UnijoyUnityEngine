@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Assets.Data;
 using Newtonsoft.Json;
 
 namespace Assets.Network.Retrievers

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Assets.Network.Handlers;
-using Assets.Network.Retrievers;
 using SimpleTCP;
 using UnityEngine;
+
+using Assets.Data;
+using Assets.Network.Handlers;
+using Assets.Network.Retrievers;
 
 namespace Assets.Network
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Network.Retrievers
+namespace Assets.Data
 {
     public interface IData
     {
