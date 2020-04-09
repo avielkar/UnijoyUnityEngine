@@ -22,9 +22,9 @@ public class MainCameraScript : MonoBehaviour
     {
         if(sendConnectionRequest)
         {
-            sendConnectionRequest = false;
+            /*sendConnectionRequest = false;
             Debug.Log("Client sends a connection request...");
-            var client = new SimpleTcpClient().Connect("127.0.0.1", 8910);
+            var client = new SimpleTcpClient().Connect("127.0.0.1", 8910);*/
         }
 
         x += 0.1f;
