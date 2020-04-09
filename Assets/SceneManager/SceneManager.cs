@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Assets.Network;
 using Assets.Network.Handlers;
 using Assets.Network.Retrievers;
 using Assets.SceneBuilders;
+using UnijoyData.Shared.Commands;
 using UnijoyData.Shared.Data;
 
 namespace Assets.SceneManager
@@ -37,11 +39,15 @@ namespace Assets.SceneManager
             {
                 Task.Run(() =>
                 {
-                    if (_commandRetriever.TryGrabCommand(out var commandName, out var commandValue))
+                    while (true)
                     {
-                        if(commandName.Equals("ReadTrialJsonData"))
+                        //Thread.Sleep(100);
+                        if (_commandRetriever.TryGrabCommand(out var commandName, out var commandValue))
                         {
-                            _dataRetriever.RetrieveData(commandValue, out _currentTrialMetaData);
+                            if (commandName.Equals(UnityEngineCommands.ReadTrialData))
+                            {
+                                _dataRetriever.RetrieveData(commandValue, out _currentTrialMetaData);
+                            }
                         }
                     }
                 }
