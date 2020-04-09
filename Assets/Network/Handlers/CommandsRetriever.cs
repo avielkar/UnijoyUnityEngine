@@ -8,7 +8,7 @@ using SimpleTCP;
 using System.Net;
 using UnityEngine;
 
-using Assets.Data;
+using UnijoyData.Shared.Data;
 using Assets.Network.Retrievers;
 
 namespace Assets.Network.Handlers

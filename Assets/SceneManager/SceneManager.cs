@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Assets.Data;
 using Assets.Network;
 using Assets.Network.Handlers;
 using Assets.Network.Retrievers;
 using Assets.SceneBuilders;
+using UnijoyData.Shared.Data;
 
 namespace Assets.SceneManager
 {

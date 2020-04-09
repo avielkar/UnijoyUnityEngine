@@ -9,6 +9,7 @@ using Assets.SceneManager;
 using Assets.SceneBuilders;
 using Assets.Network.Retrievers;
 using Assets.Network.Handlers;
+using UnijoyData.Shared.Data;
 
 namespace Assets.Initializers
 {
@@ -16,13 +17,13 @@ namespace Assets.Initializers
     {
         private int SERVER_PORT = 8910;
 
-        private SceneManager<UnijoySceneData, UnijoyTrialData> _sceneManager;
+        private SceneManager<UnijoySceneData, UnijoyTrialMetaData> _sceneManager;
 
         private void Awake()
         {
-            _sceneManager = new SceneManager<UnijoySceneData, UnijoyTrialData>(
+            _sceneManager = new SceneManager<UnijoySceneData, UnijoyTrialMetaData>(
             new SceneBuilder<UnijoySceneData>(),
-            new DataRetriever<UnijoyTrialData>(),
+            new DataRetriever<UnijoyTrialMetaData>(),
             new CommandsRetriever(SERVER_PORT));
         }
         private void Start()
