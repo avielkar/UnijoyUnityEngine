@@ -12,7 +12,7 @@ namespace Assets.Network.Retrievers
     [JsonObject]
     public class UnijoyTrialData : ITrialData
     {
-        public int Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
         public List<float> X { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
