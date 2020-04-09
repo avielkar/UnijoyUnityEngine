@@ -12,7 +12,8 @@ namespace Assets.SceneBuilders
         
         public List<float> ObjectsVertices { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
-        public int Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string  Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public List<float> X { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         
         public List<float> Y { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
