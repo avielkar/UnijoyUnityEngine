@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using UnijoyData.Shared.Data;
+using UnityEngine;
 
 namespace Assets.SceneBuilders
 {
     public interface ISceneData : ITrialData
     {
-        List<float> ObjectsVertices { get; set; }
+        List<Vector3> ObjectsVertices { get; set; }
     }
 }
