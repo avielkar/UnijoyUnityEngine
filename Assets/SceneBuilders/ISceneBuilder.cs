@@ -8,8 +8,8 @@ using UnijoyData.Shared.Data;
 
 namespace Assets.SceneBuilders
 {
-    public interface ISceneBuilder<T> where T : ISceneData
+    public interface ISceneBuilder
     {
-        bool Build(ITrialData trialData, out T sceneData);
+        ISceneData Build(ITrialData trialData);
     }
 }
