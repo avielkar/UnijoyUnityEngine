@@ -17,12 +17,12 @@ namespace Assets.Initializers
     {
         private int SERVER_PORT = 8910;
 
-        private SceneManager<UnijoySceneData, UnijoyTrialMetaData> _sceneManager;
+        private SceneManager<UnijoyTrialMetaData> _sceneManager;
 
         private void Awake()
         {
-            _sceneManager = new SceneManager<UnijoySceneData, UnijoyTrialMetaData>(
-            new SceneBuilder<UnijoySceneData>(),
+            _sceneManager = new SceneManager<UnijoyTrialMetaData>(
+            new SceneBuilder(),
             new DataRetriever<UnijoyTrialMetaData>(),
             new CommandsRetriever(SERVER_PORT));
         }
