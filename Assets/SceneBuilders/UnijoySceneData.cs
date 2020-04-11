@@ -5,32 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 
 using UnijoyData.Shared.Data;
+using UnityEngine;
 
 namespace Assets.SceneBuilders
 {
     public class UnijoySceneData : ISceneData
     {
         
-        public List<float> ObjectsVertices { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<Vector3> ObjectsVertices { get ; set ; }
         
-        public string  Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string  Source { get ; set ; }
 
-        public List<float> X { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<float> X { get ; set ; }
         
-        public List<float> Y { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<float> Y { get ; set ; }
         
-        public List<float> Z { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<float> Z { get ; set ; }
         
-        public List<float> RX { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<float> RX { get ; set ; }
         
-        public List<float> RY { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<float> RY { get ; set ; }
         
-        public List<float> RZ { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<float> RZ { get ; set ; }
         
-        public int NumOfObjects { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int NumOfObjects { get ; set ; }
         
-        public ColorData ColorData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ColorData ColorData { get ; set ; }
         
-        public ObjectType ObjectType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ObjectType ObjectType { get ; set ; }
     }
 }
