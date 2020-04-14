@@ -15,13 +15,11 @@ public class Triangle : MonoBehaviour
 	Mesh mesh;
 	MeshRenderer meshRenderer;
 	Vector3[] vertices;
-	int[] triangles;
+	int[] vertexesIndexes;
 	private bool newData = false;
 	private bool renderNewData = false;
 
 	public Material material;
-
-	int frameNumber = 0;
 
 	private void Awake()
 	{
@@ -34,10 +32,10 @@ public class Triangle : MonoBehaviour
 		{
 
 			vertices = e.ObjectsVertices.ToArray();
-			triangles = new int[3000];
-			for(int i=0;i<3000;i++)
+			vertexesIndexes = new int[vertices.Length];
+			for(int i=0;i< vertexesIndexes.Length; i++)
 			{
-				triangles[i] = i;
+				vertexesIndexes[i] = i;
 			}
 
 
@@ -82,7 +80,7 @@ public class Triangle : MonoBehaviour
 		if(renderNewData)
 		{
 			Debug.Log("Updating new trial data");
-			//triangles = new[] { 0, 1, 2 };
+
 			GetComponent<MeshFilter>().mesh = mesh;
 
 			renderNewData = false;
@@ -96,7 +94,7 @@ public class Triangle : MonoBehaviour
 			Debug.Log("Computig new trial data");
 			mesh = new Mesh();
 			mesh.vertices = vertices;
-			mesh.triangles = triangles;
+			mesh.triangles = vertexesIndexes;
 		}
 		catch (Exception ex)
 		{
