@@ -10,6 +10,6 @@ namespace Assets.SceneBuilders
 {
     public interface ISceneBuilder
     {
-        ISceneData Build(ITrialData trialData);
+        ISceneData Build(IVisualTrialData trialData);
     }
 }

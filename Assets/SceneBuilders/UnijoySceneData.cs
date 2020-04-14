@@ -14,7 +14,7 @@ namespace Assets.SceneBuilders
         
         public List<Vector3> ObjectsVertices { get ; set ; }
         
-        public string  Source { get ; set ; }
+        //public string  Source { get ; set ; }
 
         public List<float> X { get ; set ; }
         
@@ -33,5 +33,10 @@ namespace Assets.SceneBuilders
         public ColorData ColorData { get ; set ; }
         
         public ObjectType ObjectType { get ; set ; }
+
+        public float Density { get ; set ; }
+        public int Coherence { get ; set ; }
+        public float BaseSize { get ; set ; }
+        public float HeightSize { get ; set ; }
     }
 }
