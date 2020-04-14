@@ -9,16 +9,12 @@ using Assets.SceneBuilders;
 
 public class MainCameraScript : MonoBehaviour
 {
-    private float y = 0;
-    private float z = 0;
-    private float x = 0;
-
-    bool newData = false;
-    private bool renderNewData = false;
-    private int numOfFrames = 0;
+    bool _newData = false;
+    private bool _renderNewData = false;
+    private int _numOfFrames = 0;
 
     //todo:: make this list as concurrent list.
-    List<float> zTrajectory = new List<float>();
+    List<float> _zTrajectory = new List<float>();
 
     // Start is called before the first frame update
     void Start()
@@ -32,31 +28,28 @@ public class MainCameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
-        x += 0.1f;
-
-        if (renderNewData && zTrajectory.Count > 0)
+        if (_renderNewData && _zTrajectory.Count > 0)
         {
-            if(numOfFrames == 0)
+            if(_numOfFrames == 0)
             {
                 Debug.Log("Rendering new trial data");
             }
 
-            transform.position = new Vector3(0, 0, zTrajectory[0]);
-            zTrajectory.RemoveAt(0);
+            transform.position = new Vector3(0, 0, _zTrajectory[0]);
+            _zTrajectory.RemoveAt(0);
 
-            numOfFrames++;
+            _numOfFrames++;
         }
-        else if (renderNewData && zTrajectory.Count == 0)
+        else if (_renderNewData && _zTrajectory.Count == 0)
         {
-            renderNewData = false;
-            numOfFrames = 0;
+            _renderNewData = false;
+            _numOfFrames = 0;
         }
     }
 
     private void HandleStartRenderCommand(object sender, EventArgs e)
     {
-        renderNewData = true;
+        _renderNewData = true;
     }
 
     void HandelNewData(object sender, ISceneData e)
@@ -66,12 +59,12 @@ public class MainCameraScript : MonoBehaviour
             Debug.Log("Start Handling new trial data");
             for (int i = 0; i < e.Z.Count; i+=17)
             {
-                zTrajectory.Add(e.X[i]);
+                _zTrajectory.Add(e.X[i]);
             }
 
             Debug.Log("Finish Handling new trial data");
 
-            newData = true;
+            _newData = true;
         }
         catch (Exception ex)
         {

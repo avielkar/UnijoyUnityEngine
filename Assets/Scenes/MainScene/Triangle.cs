@@ -12,18 +12,18 @@ using Assets.Scenes.Shared;
 
 public class Triangle : MonoBehaviour
 {
-	Mesh mesh;
-	MeshRenderer meshRenderer;
-	Vector3[] vertices;
-	int[] vertexesIndexes;
-	private bool newData = false;
-	private bool renderNewData = false;
+	Mesh _mesh;
+	MeshRenderer _meshRenderer;
+	Vector3[] _vertices;
+	int[] _vertexesIndexes;
+	private bool _newData = false;
+	private bool _renderNewData = false;
 
 	public Material material;
 
 	private void Awake()
 	{
-		mesh = new Mesh();
+		_mesh = new Mesh();
 	}
 
 	void HandelNewData(object sender, ISceneData e)
@@ -31,17 +31,17 @@ public class Triangle : MonoBehaviour
 		try
 		{
 
-			vertices = e.ObjectsVertices.ToArray();
-			vertexesIndexes = new int[vertices.Length];
-			for(int i=0;i< vertexesIndexes.Length; i++)
+			_vertices = e.ObjectsVertices.ToArray();
+			_vertexesIndexes = new int[_vertices.Length];
+			for(int i=0;i< _vertexesIndexes.Length; i++)
 			{
-				vertexesIndexes[i] = i;
+				_vertexesIndexes[i] = i;
 			}
 
 
 			Debug.Log("Handling new trial data");
 
-			newData = true;
+			_newData = true;
 		}
 		catch (Exception ex)
 		{
@@ -51,7 +51,7 @@ public class Triangle : MonoBehaviour
 
 	private void HandleStartRenderCommand(object sender, EventArgs e)
 	{
-		renderNewData = true;
+		_renderNewData = true;
 	}
 
 	// Use this for initialization
@@ -61,9 +61,9 @@ public class Triangle : MonoBehaviour
 		ScenesEventRegister.StartRenderCommandReceivedRegistraion(HandleStartRenderCommand);
 
 		gameObject.AddComponent<MeshFilter>();
-		meshRenderer = gameObject.AddComponent<MeshRenderer>();
-		meshRenderer.material = material;
-		mesh = new Mesh();
+		_meshRenderer = gameObject.AddComponent<MeshRenderer>();
+		_meshRenderer.material = material;
+		_mesh = new Mesh();
 	}
 
 
@@ -71,19 +71,19 @@ public class Triangle : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(newData)
+		if(_newData)
 		{
 			UpdateMesh();
-			newData = false;
+			_newData = false;
 		}
 
-		if(renderNewData)
+		if(_renderNewData)
 		{
 			Debug.Log("Updating new trial data");
 
-			GetComponent<MeshFilter>().mesh = mesh;
+			GetComponent<MeshFilter>().mesh = _mesh;
 
-			renderNewData = false;
+			_renderNewData = false;
 		}
 	}
 
@@ -92,9 +92,9 @@ public class Triangle : MonoBehaviour
 		try
 		{
 			Debug.Log("Computig new trial data");
-			mesh = new Mesh();
-			mesh.vertices = vertices;
-			mesh.triangles = vertexesIndexes;
+			_mesh = new Mesh();
+			_mesh.vertices = _vertices;
+			_mesh.triangles = _vertexesIndexes;
 		}
 		catch (Exception ex)
 		{
