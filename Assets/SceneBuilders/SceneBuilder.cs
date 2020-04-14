@@ -35,7 +35,11 @@ namespace Assets.SceneBuilders
                 ObjectType = trialData.ObjectType,
                 //Source = trialData.Source,
                 NumOfObjects = trialData.NumOfObjects,
-                ObjectsVertices = new List<Vector3>()
+                ObjectsVertices = new List<Vector3>(),
+                Density = trialData.Density,
+                BaseSize = trialData.BaseSize,
+                HeightSize = trialData.HeightSize,
+                Coherence = trialData.Coherence
             };
 
             AddObjectives();
