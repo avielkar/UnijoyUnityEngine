@@ -52,7 +52,7 @@ namespace Assets.SceneBuilders
             switch (_sceneData.ObjectType)
             {
                 case ObjectType.Triangle:
-                    _sceneData.ObjectsVertices.AddRange(CreateTriangle());
+                    _sceneData.ObjectsVertices.AddRange(CreateTriangles());
                     break;
                 case ObjectType.Circle:
                     break;
@@ -61,7 +61,7 @@ namespace Assets.SceneBuilders
             }
         }
 
-        public List<Vector3> CreateTriangle()
+        public List<Vector3> CreateTriangles()
         {
             List<Vector3> triangleVetexes = new List<Vector3>();
 
