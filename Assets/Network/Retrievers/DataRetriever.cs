@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Assets.Data;
 using Newtonsoft.Json;
+using UnijoyData.Shared.Data;
 
 namespace Assets.Network.Retrievers
 {

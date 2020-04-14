@@ -17,5 +17,9 @@ namespace Assets.SceneManager
         void Pause();
 
         void Resume();
+
+        event EventHandler<T> NewSceneReceived;
+
+        event EventHandler StartRenderCommandReceived;
     }
 }

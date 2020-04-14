@@ -8,7 +8,7 @@ using SimpleTCP;
 using System.Net;
 using UnityEngine;
 
-using Assets.Data;
+using UnijoyData.Shared.Data;
 using Assets.Network.Retrievers;
 
 namespace Assets.Network.Handlers
@@ -58,6 +58,7 @@ namespace Assets.Network.Handlers
             void _server_DelimiterDataReceived(object sender, Message e)
             {
                 var commandValuePair = e.MessageString.Split(_commandSplitChar);
+                Debug.Log($"Received new command {commandValuePair[0]} with value {commandValuePair[1]}");
                 _commandsBuffer.Enqueue((commandValuePair[0], commandValuePair[1]));
             }
         }
