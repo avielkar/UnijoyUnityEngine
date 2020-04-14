@@ -49,12 +49,15 @@ namespace Assets.SceneBuilders
 
         public void AddObjects()
         {
-            for (int i=0;i< /*_sceneData.NumOfObjects*/1; i++)
+            switch (_sceneData.ObjectType)
             {
-                if(_sceneData.ObjectType == ObjectType.Triangle)
-                {
+                case ObjectType.Triangle:
                     _sceneData.ObjectsVertices.AddRange(CreateTriangle());
-                }
+                    break;
+                case ObjectType.Circle:
+                    break;
+                default:
+                    break;
             }
         }
 
