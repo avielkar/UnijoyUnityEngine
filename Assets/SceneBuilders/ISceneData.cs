@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Assets.SceneBuilders
 {
-    public interface ISceneData : ITrialData
+    public interface ISceneData : IVisualTrialData
     {
         List<Vector3> ObjectsVertices { get; set; }
     }

@@ -21,7 +21,7 @@ namespace Assets.SceneBuilders
             _rand = new System.Random();
         }
 
-        public ISceneData Build(ITrialData trialData)
+        public ISceneData Build(IVisualTrialData trialData)
         {
             _sceneData = new UnijoySceneData()
             {
@@ -33,7 +33,7 @@ namespace Assets.SceneBuilders
                 RY = trialData.RY,
                 RZ = trialData.RZ,
                 ObjectType = trialData.ObjectType,
-                Source = trialData.Source,
+                //Source = trialData.Source,
                 NumOfObjects = trialData.NumOfObjects,
                 ObjectsVertices = new List<Vector3>()
             };

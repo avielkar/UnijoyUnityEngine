@@ -16,7 +16,7 @@ using UnityEngine;
 
 namespace Assets.SceneManager
 {
-    public class SceneManager<M>:ISceneManager<ISceneData> where M:ITrialData
+    public class SceneManager<M>:ISceneManager<ISceneData> where M:IVisualTrialData
     {
         private SceneBuilder _sceneBuilder;
         private IDataRetriever<M> _dataRetriever;
