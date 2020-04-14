@@ -42,12 +42,12 @@ namespace Assets.SceneBuilders
                 Coherence = trialData.Coherence
             };
 
-            AddObjectives();
+            AddObjects();
 
             return _sceneData;
         }
 
-        public void AddObjectives()
+        public void AddObjects()
         {
             for (int i=0;i< /*_sceneData.NumOfObjects*/1; i++)
             {
