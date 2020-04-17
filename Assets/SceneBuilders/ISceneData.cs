@@ -12,5 +12,7 @@ namespace Assets.SceneBuilders
     public interface ISceneData : IVisualTrialData
     {
         List<Vector3> ObjectsVertices { get; set; }
+
+        int TotalObjects { get; }
     }
 }

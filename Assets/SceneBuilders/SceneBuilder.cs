@@ -34,58 +34,62 @@ namespace Assets.SceneBuilders
                 RZ = trialData.RZ,
                 ObjectType = trialData.ObjectType,
                 //Source = trialData.Source,
-                NumOfObjects = trialData.NumOfObjects,
-                ObjectsVertices = new List<Vector3>()
+                ObjectsVertices = new List<Vector3>(),
+                Density = trialData.Density,
+                Size = trialData.Size,
+                Coherence = trialData.Coherence,
+                StarFieldDimension = trialData.StarFieldDimension,
+                ClipPlanes = trialData.ClipPlanes,
+                ScreenDimension = trialData.ScreenDimension,
+                EyeOffsets = trialData.EyeOffsets,
+                HeadCenter = trialData.HeadCenter
             };
 
-            AddObjectives();
+            AddObjects();
 
             return _sceneData;
         }
 
-        public void AddObjectives()
+        public void AddObjects()
         {
-            for (int i=0;i< /*_sceneData.NumOfObjects*/1; i++)
+            switch (_sceneData.ObjectType)
             {
-                if(_sceneData.ObjectType == ObjectType.Triangle)
-                {
-                    _sceneData.ObjectsVertices.AddRange(CreateTriangle());
-                }
+                case ObjectType.Triangle:
+                    _sceneData.ObjectsVertices.AddRange(CreateTriangles());
+                    break;
+                case ObjectType.Circle:
+                    break;
+                default:
+                    break;
             }
         }
 
-        public List<Vector3> CreateTriangle()
+        public List<Vector3> CreateTriangles()
         {
             List<Vector3> triangleVetexes = new List<Vector3>();
 
-            for (int i = 0; i < 1000; i++)
-            {
-                float sd0 = 100;
-                float sd1 = 100;
-                float sd2 = 100;
-                float ts0 = 1;
-                float ts1 = 1;
+            (float starFieldDimensionX, float starFieldDimensionY, float starFieldDimensionZ)  = _sceneData.StarFieldDimension;
+            (float objectSizeX, float objectSizeY) = _sceneData.Size;
 
-                float baseX1 = (float)_rand.NextDouble();
-                float baseX = baseX1 / 1 * sd0 - sd0 / 2.0f;
-                float baseY1 = (float)_rand.NextDouble();
-                float baseY = baseY1 / 1 * sd1 - sd1 / 2.0f;
-                float baseZ1 = (float)_rand.NextDouble();
-                float baseZ = baseZ1 / 1 * sd2 - sd2 / 2.0f;
+            for (int i = 0; i < _sceneData.TotalObjects; i++)
+            {
+                float baseX = (float)_rand.NextDouble() / 1 * starFieldDimensionX - starFieldDimensionX / 2.0f;
+                float baseY = (float)_rand.NextDouble() / 1 * starFieldDimensionY - starFieldDimensionY / 2.0f;
+                float baseZ = (float)_rand.NextDouble() / 1 * starFieldDimensionZ - starFieldDimensionZ / 2.0f;
 
                 // Vertex 1
-                triangleVetexes.Add(new Vector3(baseX - ts0 / 2.0f,
-                    baseY - ts1 / 2.0f,
+                triangleVetexes.Add(new Vector3(baseX - objectSizeX / 2.0f,
+                    baseY - objectSizeY / 2.0f,
                     baseZ));
 
                 // Vertex 2
                 triangleVetexes.Add(new Vector3(baseX,
-                    baseY + ts1 / 2.0f,
+                    baseY + objectSizeY / 2.0f,
                     baseZ));
 
                 // Vertex 3
-                triangleVetexes.Add(new Vector3(baseX + ts0 / 2.0f,
-                    baseY - ts1 / 2.0f,
+                triangleVetexes.Add(new Vector3(baseX + objectSizeX / 2.0f,
+                    baseY - objectSizeY / 2.0f,
                     baseZ));
             }
 
