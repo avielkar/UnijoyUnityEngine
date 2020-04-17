@@ -21,5 +21,7 @@ namespace Assets.SceneManager
         event EventHandler<T> NewSceneReceived;
 
         event EventHandler StartRenderCommandReceived;
+
+        event EventHandler ClearRenderCommandReceied;
     }
 }
