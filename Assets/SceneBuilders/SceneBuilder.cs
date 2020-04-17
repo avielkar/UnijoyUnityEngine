@@ -34,11 +34,10 @@ namespace Assets.SceneBuilders
                 RZ = trialData.RZ,
                 ObjectType = trialData.ObjectType,
                 //Source = trialData.Source,
-                NumOfObjects = trialData.NumOfObjects,
+                //NumOfObjects = trialData.NumOfObjects,
                 ObjectsVertices = new List<Vector3>(),
                 Density = trialData.Density,
-                BaseSize = trialData.BaseSize,
-                HeightSize = trialData.HeightSize,
+                Size = trialData.Size,
                 Coherence = trialData.Coherence
             };
 
