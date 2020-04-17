@@ -37,7 +37,12 @@ namespace Assets.SceneBuilders
                 ObjectsVertices = new List<Vector3>(),
                 Density = trialData.Density,
                 Size = trialData.Size,
-                Coherence = trialData.Coherence
+                Coherence = trialData.Coherence,
+                StarFieldDimension = trialData.StarFieldDimension,
+                ClipPlanes = trialData.ClipPlanes,
+                ScreenDimension = trialData.ScreenDimension,
+                EyeOffsets = trialData.EyeOffsets,
+                HeadCenter = trialData.HeadCenter
             };
 
             AddObjects();
