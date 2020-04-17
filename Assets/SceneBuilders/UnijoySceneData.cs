@@ -36,7 +36,7 @@ namespace Assets.SceneBuilders
         public float Density { get ; set ; }
 
         public (float, float) Size { get ; set ; }
-        public int NumberOfObjects => (int) (Density* StarFieldDimension.Item1* StarFieldDimension.Item2 * StarFieldDimension.Item3);
+        public int TotalObjects => (int) (Density* StarFieldDimension.Item1* StarFieldDimension.Item2 * StarFieldDimension.Item3);
 
 
         public int Coherence { get; set; }

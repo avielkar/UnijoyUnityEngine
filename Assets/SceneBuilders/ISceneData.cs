@@ -13,6 +13,6 @@ namespace Assets.SceneBuilders
     {
         List<Vector3> ObjectsVertices { get; set; }
 
-        int NumberOfObjects { get; }
+        int TotalObjects { get; }
     }
 }
