@@ -71,11 +71,15 @@ namespace Assets.SceneBuilders
             (float starFieldDimensionX, float starFieldDimensionY, float starFieldDimensionZ)  = _sceneData.StarFieldDimension;
             (float objectSizeX, float objectSizeY) = _sceneData.Size;
 
+            float baseX;
+            float baseY;
+            float baseZ;
+
             for (int i = 0; i < _sceneData.TotalObjects; i++)
             {
-                float baseX = (float)_rand.NextDouble() / 1 * starFieldDimensionX - starFieldDimensionX / 2.0f;
-                float baseY = (float)_rand.NextDouble() / 1 * starFieldDimensionY - starFieldDimensionY / 2.0f;
-                float baseZ = (float)_rand.NextDouble() / 1 * starFieldDimensionZ - starFieldDimensionZ / 2.0f;
+                baseX = (float)_rand.NextDouble() / 1 * starFieldDimensionX - starFieldDimensionX / 2.0f;
+                baseY = (float)_rand.NextDouble() / 1 * starFieldDimensionY - starFieldDimensionY / 2.0f;
+                baseZ = (float)_rand.NextDouble() / 1 * starFieldDimensionZ - starFieldDimensionZ / 2.0f;
 
                 // Vertex 1
                 triangleVetexes.Add(new Vector3(baseX - objectSizeX / 2.0f,
