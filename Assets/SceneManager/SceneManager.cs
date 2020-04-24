@@ -29,6 +29,7 @@ namespace Assets.SceneManager
 
         public event EventHandler<ISceneData> NewSceneReceived;
         public event EventHandler StartRenderCommandReceived;
+        public event EventHandler ClearRenderCommandReceied;
 
         public Task _grabCommands;
 
@@ -73,7 +74,14 @@ namespace Assets.SceneManager
                     }
                     else if (commandName.Equals(UnityEngineCommands.VisualOperationCommand))
                     {
-                        StartRenderCommandReceived.Invoke(this, null);
+                        if (commandValue.Equals(VisualOperationCommand.StartRender))
+                        {
+                            StartRenderCommandReceived.Invoke(this, null);
+                        }
+                        else if (commandValue.Equals(VisualOperationCommand.CleanScreen))
+                        {
+                            ClearRenderCommandReceied.Invoke(this, null);
+                        }
                     }
                 }
             }

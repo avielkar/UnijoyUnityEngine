@@ -26,5 +26,10 @@ namespace Assets.Scenes.Shared
         {
             _sceneManager.StartRenderCommandReceived += action;
         }
+
+        public static void ClearRenderCommandReceivedRegistraion(EventHandler action)
+        {
+            _sceneManager.ClearRenderCommandReceied += action;
+        }
     }
 }
